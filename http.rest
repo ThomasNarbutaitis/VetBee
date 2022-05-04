@@ -1,0 +1,20 @@
+POST http://194.135.87.110/pets
+Content-Type: application/json
+
+{
+    "name": "Rainis",
+    "dob": "1998",
+    "client_email": "rainis@gmail",
+    "archived": 0
+}
+
+
+POST http://194.135.87.110/pets
+Content-Type: application/json
+
+{
+    "name": "Rainis",
+    "dob": "1998",
+    "client_email": "rainis@gmail",
+    "archived": 0
+}
