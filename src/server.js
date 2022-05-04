@@ -3,7 +3,7 @@ const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
 const { PORT } = require('./config');
-const petsRoutes = require('./routes');
+const { petsRoutes } = require('../routes/petsRoutes');
 
 const app = express();
 
