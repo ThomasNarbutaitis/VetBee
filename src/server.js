@@ -3,7 +3,7 @@ const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
 const { PORT } = require('./config');
-const petsRoutes = require('./routes');
+const { petsRoutes } = require('../routes/petsRoutes');
 
 const app = express();
 
@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
-app.use('/', petsRoutes);
+app.use('/', petsRoutes)
 
 // api
 app.all('*', (req, res) => {
