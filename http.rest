@@ -1,6 +1,0 @@
-GET http://localhost:3306/pets
-###
-POST http://localhost:3306/pets
-Content-Type: application/json
-
-###
