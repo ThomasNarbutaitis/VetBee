@@ -7,9 +7,8 @@ async function createTableDb() {
   let conn;
   try {
     conn = await mysql.createConnection(dbConfig);
-    const sql = `CREATE TABLE slscom_vetbee4.logs (id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-
-      pet_id TEXT, description TEXT, status TEXT, PRIMARY KEY (id)) ENGINE = InnoDB`;
+    const sql = `CREATE TABLE slscom_vetbee4.prescriptions (id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+ medication_id TEXT, pet_id TEXT, comment TEXT, timestamp TIMESTAMP, PRIMARY KEY (id)) ENGINE = InnoDB`;
 
     console.log('pries uzklausa');
     const [result] = await conn.query(sql);
@@ -26,7 +25,7 @@ async function createTableDb() {
   }
 }
 
-createTableDb();
+// createTableDb();
 
 module.exports = {
   createTableDb,
