@@ -1,20 +1,15 @@
-POST http://194.135.87.110/pets
+POST http://localhost:3306/v1/pets
 Content-Type: application/json
 
 {
-    "name": "Rainis",
-    "dob": "1998",
-    "client_email": "rainis@gmail",
+    "name": "Brisius",
+    "dob": "2010",
+    "client_email": "brisius@gmail",
     "archived": 0
 }
+###
 
-
-POST http://194.135.87.110/pets
-Content-Type: application/json
-
-{
-    "name": "Rainis",
-    "dob": "1998",
-    "client_email": "rainis@gmail",
-    "archived": 0
-}
+GET http://localhost:3306/v1/pets
+###
+DELETE http://localhost:3306/v1/pets/4
+###

@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
-app.use('/', petsRoutes)
+app.use('/v1', petsRoutes);
 
 // api
 app.all('*', (req, res) => {
