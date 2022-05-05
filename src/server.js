@@ -6,6 +6,7 @@ const { PORT } = require('./config');
 const { petsRoutes } = require('../routes/petsRoutes');
 const { medicationsRoutes } = require('../routes/medications');
 const { logsRoutes } = require('../routes/logsRoutes');
+const { prescriptions } = require('../routes/prescriptionsRoutes');
 
 const app = express();
 
@@ -18,6 +19,7 @@ app.use(express.json());
 app.use('/v1', petsRoutes);
 app.use('/v1', medicationsRoutes);
 app.use('/v1', logsRoutes);
+app.use('/v1', prescriptions);
 
 // api
 app.all('*', (req, res) => {

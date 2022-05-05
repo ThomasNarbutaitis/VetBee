@@ -15,10 +15,7 @@ medicationsRoutes.post('/meds', async (req, res) => {
     conn = await mysql.createConnection(dbConfig);
     const sql = `INSERT INTO medications (name, description)
     VALUES (?, ?)`;
-    const [insertResultObj] = await conn.execute(sql, [
-      name,
-      description,
-    ]);
+    const [insertResultObj] = await conn.execute(sql, [name, description]);
     if (insertResultObj.affectedRows === 1) {
       res.status(201).json(insertResultObj);
       return;
