@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const cors = require('cors');
 const { PORT } = require('./config');
 const { petsRoutes } = require('../routes/petsRoutes');
+const { medicationsRoutes } = require('../routes/medications');
 
 const app = express();
 
@@ -14,6 +15,7 @@ app.use(express.json());
 
 // Routes
 app.use('/v1', petsRoutes);
+app.use('/v1', medicationsRoutes);
 
 // api
 app.all('*', (req, res) => {

@@ -13,3 +13,16 @@ GET http://localhost:3306/v1/pets
 ###
 DELETE http://localhost:3306/v1/pets/4
 ###
+
+POST http://localhost:3306/v1/meds
+Content-Type: application/json
+
+{
+    "name": "pyrantel",
+    "description": "effective against ascarids, hookworms and stomach worms"
+}
+
+###
+
+GET http://localhost:3306/v1/meds
+###
