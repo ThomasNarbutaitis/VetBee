@@ -2,9 +2,9 @@ POST http://localhost:3306/v1/pets
 Content-Type: application/json
 
 {
-    "name": "Brisius",
-    "dob": "2010",
-    "client_email": "brisius@gmail",
+    "name": "Milka",
+    "dob": "2022",
+    "client_email": "milka@gmail",
     "archived": 0
 }
 ###
@@ -13,6 +13,7 @@ GET http://localhost:3306/v1/pets
 ###
 DELETE http://localhost:3306/v1/pets/4
 ###
+# ====================================================
 
 POST http://localhost:3306/v1/meds
 Content-Type: application/json
@@ -23,6 +24,19 @@ Content-Type: application/json
 }
 
 ###
-
 GET http://localhost:3306/v1/meds
+###
+# ========================================================
+POST http://localhost:3306/v1/logs
+Content-Type: application/json
+
+{
+    "pet_id": 8,
+    "description": "neduoda sokoladinio pieno",
+    "status": "ieskom priezasties"
+}
+
+###
+
+GET http://localhost:3306/v1/logs
 ###
