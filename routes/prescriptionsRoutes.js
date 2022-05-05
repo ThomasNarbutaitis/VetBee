@@ -37,7 +37,8 @@ prescriptions.get('/prescriptions', async (req, res) => {
     conn = await mysql.createConnection(dbConfig);
     // eslint-disable-next-line operator-linebreak
     // GET paims vieno augintinio visus įrašus iš 'prescriptions' db ir apjungs juos su pets ir med lentelėmis.
-    const sql = "SELECT * FROM pets LEFT JOIN logs ON pets.id=logs.pet_id WHERE logs.pet_id!='null'";
+    // const sql = "SELECT * FROM prescriptions";
+    const sql = 'SELECT * FROM pets FULL OUTER JOIN prescriptions ON pets.id=prescriptions.pet_id';
     const [logsArr] = await conn.execute(sql);
     console.log('logsArr ===', logsArr);
     res.status(200).json(logsArr);

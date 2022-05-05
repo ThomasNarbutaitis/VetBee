@@ -46,9 +46,9 @@ POST http://localhost:3306/v1/prescriptions
 Content-Type: application/json
 
 {
-    "medication_id": 1,
-    "pet_id": 3,
-    "comment": "3 lasai per diena. 1 savaite",
+    "medication_id": 3,
+    "pet_id": 8,
+    "comment": "Girdyti daugiau vandens",
     "timestamp": "2022-05-05"
 }
 
