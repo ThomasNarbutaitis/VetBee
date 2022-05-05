@@ -1,4 +1,5 @@
 @import 'reset.css';
+@import 'add_pet.css';
 
 * {
   padding: 0;
@@ -121,6 +122,26 @@ footer {
 .small-btn:nth-child(2) {
   margin-right: 0.5rem;
 }
+/* ========================= Add Pet ========================== */
+.description {
+  text-align: center;
+}
+
+.input {
+  background-color: white;
+  color: rgb(35, 35, 35);
+  padding: 8px 20px;
+  border: 1px solid rgb(252, 127, 24);
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.input:hover {
+  background-color: rgb(239, 239, 239);
+}
+
 
 /* =========================media queries========================== */
 
