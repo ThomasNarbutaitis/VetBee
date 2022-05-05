@@ -49,6 +49,7 @@ petsRoutes.get('/pets', async (req, res) => {
     // eslint-disable-next-line camelcase
     const [petsArr] = await conn.execute(sql);
     console.log('petsArr ===', petsArr);
+    res.json(petsArr);
   } catch (error) {
     console.log('error creating post', error);
     res.sendStatus(500);

@@ -17,7 +17,12 @@ prescriptions.post('/prescriptions', async (req, res) => {
     conn = await mysql.createConnection(dbConfig);
     const sql = `INSERT INTO prescriptions (medication_id, pet_id, comment, timestamp)
     VALUES (?, ?, ?, ?)`;
-    const [insertResultObj] = await conn.execute(sql, [medication_id, pet_id, comment, timestamp]);
+    const [insertResultObj] = await conn.execute(sql, [
+      medication_id,
+      pet_id,
+      comment,
+      timestamp,
+    ]);
     if (insertResultObj.affectedRows === 1) {
       res.status(201).json(insertResultObj);
       return;
@@ -38,7 +43,8 @@ prescriptions.get('/prescriptions', async (req, res) => {
     // eslint-disable-next-line operator-linebreak
     // GET paims vieno augintinio visus įrašus iš 'prescriptions' db ir apjungs juos su pets ir med lentelėmis.
     // const sql = "SELECT * FROM prescriptions";
-    const sql = 'SELECT * FROM pets FULL OUTER JOIN prescriptions ON pets.id=prescriptions.pet_id';
+    const sql =
+      'SELECT * FROM pets LEFT JOIN prescriptions ON pets.id=prescriptions.pet_id';
     const [logsArr] = await conn.execute(sql);
     console.log('logsArr ===', logsArr);
     res.status(200).json(logsArr);
