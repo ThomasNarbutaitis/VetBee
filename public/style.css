@@ -21,14 +21,13 @@ nav {
   color: rgb(252, 127, 24);
 }
 
-/* hr {
-background-color: lightgray
-border: 5px
-} */
-
 header {
   margin-bottom: 1rem;
   border-bottom: 1px solid lightgray;
+}
+
+.active {
+  text-decoration: underline;
 }
 
 .petlist-addpet,

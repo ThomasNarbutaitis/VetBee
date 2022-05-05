@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable camelcase */
 require('dotenv').config();
 const express = require('express');
@@ -43,8 +44,10 @@ prescriptions.get('/prescriptions', async (req, res) => {
     // eslint-disable-next-line operator-linebreak
     // GET paims vieno augintinio visus įrašus iš 'prescriptions' db ir apjungs juos su pets ir med lentelėmis.
     // const sql = "SELECT * FROM prescriptions";
+    // const sql =
+    //   'SELECT * FROM prescriptions LEFT JOIN medications ON medications.id = prescriptions.medication_id';
     const sql =
-      'SELECT * FROM pets LEFT JOIN prescriptions ON pets.id=prescriptions.pet_id';
+      'SELECT * FROM `prescriptions`  JOIN `pets` ON prescriptions.pet_id = pets.id  JOIN medications ON prescriptions.medication_id =medications.id GROUP BY pets.name';
     const [logsArr] = await conn.execute(sql);
     console.log('logsArr ===', logsArr);
     res.status(200).json(logsArr);

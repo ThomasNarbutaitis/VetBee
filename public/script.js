@@ -37,6 +37,9 @@ function renderPets(array) {
     deleteBtn.addEventListener('click', () => {
       deletePet(arrObj.id);
     });
+    viewLogBtn.addEventListener('click', () => {
+      window.location.href = 'healthLog.html';
+    });
     btnDiv.append(viewLogBtn, deleteBtn);
     cardEl.append(btnDiv);
     cardsEl.append(cardEl);
