@@ -36,6 +36,7 @@ function renderPets(array) {
     viewLogBtn.textContent = 'VIEW LOG';
     deleteBtn.addEventListener('click', () => {
       deletePet(arrObj.id);
+      getPets();
     });
     viewLogBtn.addEventListener('click', () => {
       window.location.href = 'healthLog.html';
@@ -52,8 +53,6 @@ async function deletePet(id) {
     method: 'DELETE',
   });
   console.log('resp ===', resp);
-  if (resp.ok) {
-    getPets();
-  }
+
   console.log('data ===', await resp.json());
 }

@@ -58,7 +58,7 @@ petsRoutes.get('/pets', async (req, res) => {
   }
 });
 
-petsRoutes.delete('/pets/:id', async (req, res) => {
+petsRoutes.delete('/pets/:id/', async (req, res) => {
   const { id } = req.params;
   const safeId = mysql.escape(id);
   let conn;

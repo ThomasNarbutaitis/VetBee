@@ -3,18 +3,13 @@ const formEl = document.getElementById('petForm');
 const usernameEL = document.getElementById('name');
 const dateEl = document.getElementById('date');
 const emailEL = document.getElementById('email');
-const BASE_URL = 'http://localhost:3306/v1/pets';
+const BASE_URL = 'http://localhost:3306/v1';
 
 async function createPet(petObj) {
   console.log('pries connect');
-  // try {
-  //   const resp = await fetch(`${BASE_URL}/pets`, {
-  //     method: 'POST',
-  //     headers: { 'Content-Type': 'application/json' },
-  //     body: JSON.stringify(petObj),
-  //   });
+
   try {
-    const resp = await fetch('http://localhost:3306/v1/pets', {
+    const resp = await fetch(`${BASE_URL}/pets`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -28,7 +23,7 @@ async function createPet(petObj) {
   }
 }
 
-// // uzdeti event pasilklausyma ir sustabdyti siuntima
+// uzdeti event pasilklausyma ir sustabdyti siuntima
 formEl.addEventListener('submit', (event) => {
   // stabdom funkcija nuo submit
   event.preventDefault();
@@ -38,8 +33,9 @@ formEl.addEventListener('submit', (event) => {
     console.log('viskas ok');
     const newPetObj = {
       name: usernameEL.value.trim(),
-      dob: dateEl.value,
-      email: emailEL.value.trim(),
+      dob: dateEl.value.trim(),
+      client_email: emailEL.value.trim(),
+      archived: 0,
     };
 
     console.log('newPetObj ===', newPetObj);
