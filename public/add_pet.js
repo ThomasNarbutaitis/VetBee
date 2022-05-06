@@ -1,9 +1,9 @@
-// // nusitaikyti i el
-// const formEl = document.getElementById('add-pet');
-// const usernameEL = document.getElementById('name');
-// const dateEl = document.getElementById('date');
-// const emailEL = document.getElementById('email');
-// const addOnePetEl = document.getElementById('add-one-pet');
+// nusitaikyti i el
+const formEl = document.getElementById('add-pet');
+const usernameEL = document.getElementById('name');
+const dateEl = document.getElementById('date');
+const emailEL = document.getElementById('email');
+const addOnePetEl = document.getElementById('add-one-pet');
 
 
 // // result EL
