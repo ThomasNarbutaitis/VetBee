@@ -1,71 +1,52 @@
 // nusitaikyti i el
-const formEl = document.getElementById('add-pet');
+const formEl = document.getElementById('petForm');
 const usernameEL = document.getElementById('name');
 const dateEl = document.getElementById('date');
 const emailEL = document.getElementById('email');
-const addOnePetEl = document.getElementById('add-one-pet');
+const BASE_URL = 'http://localhost:3306/v1/pets';
 
-
-// // result EL
-// const out1El = document.getElementById('out1');
-// const out2El = document.getElementById('out2');
-// const out3El = document.getElementById('out3');
-// const sliderValueEl = document.querySelector('.value');
+async function createPet(petObj) {
+  console.log('pries connect');
+  // try {
+  //   const resp = await fetch(`${BASE_URL}/pets`, {
+  //     method: 'POST',
+  //     headers: { 'Content-Type': 'application/json' },
+  //     body: JSON.stringify(petObj),
+  //   });
+  try {
+    const resp = await fetch('http://localhost:3306/v1/pets', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(petObj),
+    });
+    const data = await resp.json();
+    console.log('data ===', data);
+  } catch (error) {
+    console.log('error ===', error);
+  }
+}
 
 // // uzdeti event pasilklausyma ir sustabdyti siuntima
-// formEl.addEventListener('submit', (event) => {
-//   // stabdom funkcija nuo submit
-//   event.preventDefault();
-//   console.log('in controll');
-//   // clear errors
-//   usernameEL.nextElementSibling.textContent = ''; // kas tai ????????????????????????????????
-//   // reiksmiu paemimas // trim nukerpa tuscius tarpus prieky ir gale
-//   const usernameValue = usernameEL.value.trim();
-//   const dateElValue = dateEl.value;
-//   const emailValue = emailEL.value;
+formEl.addEventListener('submit', (event) => {
+  // stabdom funkcija nuo submit
+  event.preventDefault();
 
-//   // validation
-//   if (!isValid(usernameValue)) {
-//     return;
-//   }
+  // validation
+  if (usernameEL.value && dateEl.value && emailEL.value) {
+    console.log('viskas ok');
+    const newPetObj = {
+      name: usernameEL.value.trim(),
+      dob: dateEl.value,
+      email: emailEL.value.trim(),
+    };
 
-//   // reiksmiu perkelimas i rezultatus
-//   valuesToResults(usernameValue, dateValue, emailValue);
-// });
-
-// function valuesToResults(usernameValue, dateValue, emailValue) {
-//   // reiksmiu perkelimas i rezultatus
-//   out1El.textContent = usernameValue;
-//   out3El.textContent = dateValue;
-//   out2El.textContent = emailValue;
-// }
-
-
-
-// function addPet(array) {
-//   cardsEl.innerHTML = '';
-//   array.forEach((arrObj) => {
-//     const cardEl = document.createElement('div');
-//     cardEl.className = 'cards';
-//     cardEl.innerHTML = ` <div>
-//     <h3>${arrObj.name}</h3>
-//     <p>${arrObj.dob}</p>
-//     <p>${arrObj.client_email}</p></div>`;
-//     const deleteBtn = document.createElement('button');
-//     deleteBtn.className = `second ${arrObj.id}`;
-//     const viewLogBtn = document.createElement('button');
-//     viewLogBtn.className = 'prime';
-//     const btnDiv = document.createElement('div');
-//     deleteBtn.textContent = 'DELETE';
-//     viewLogBtn.textContent = 'VIEW LOG';
-//     deleteBtn.addEventListener('click', () => {
-//       deletePet(arrObj.id);
-//     });
-//     viewLogBtn.addEventListener('click', () => {
-//       window.location.href = 'add_pet.html';
-//     });
-//     btnDiv.append(viewLogBtn, deleteBtn);
-//     cardEl.append(btnDiv);
-//     cardsEl.append(cardEl);
-//   });
-// }
+    console.log('newPetObj ===', newPetObj);
+    createPet(newPetObj);
+    formEl.reset();
+    window.location.href = 'index.html';
+  } else {
+    alert('Please fill in all fields');
+  }
+});

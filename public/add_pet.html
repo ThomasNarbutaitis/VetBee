@@ -13,7 +13,7 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="./style.css" />
-    <script src="./script.js" defer></script>
+    <script src="./add_pet.js" defer></script>
   </head>
   <body>
     <header>
@@ -31,16 +31,50 @@
       <div class="container">
         <div class="description">
           <h1>Pet description card</h1>
-          </div>
+        </div>
         <div class="cards">
-           <div class="card">
-                <form id="petForm" autocomplete="off">
-                    <p><input style="width: 250px" type="text" id="name" placeholder="Name" value="" class="input"><br></p>
-                    <p><input style="width: 250px" type="date" name="" id="date" class="input"></p>
-                    <p><input style="width: 250px" type="email" name="" id="email" placeholder="Email" value="" class="input" ><br></p>
-                    <input style="width: 120px" type="submit" value="Add" class="prime" id="add-one-pet">
-                    <input style="width: 120px" type="reset" class="second">
-                </form>
+          <div class="card">
+            <form id="petForm" autocomplete="off">
+              <p>
+                <input
+                  style="width: 250px"
+                  type="text"
+                  id="name"
+                  placeholder="Name"
+                  value="roxy"
+                  class="input"
+                /><br />
+              </p>
+              <p>
+                <input
+                  style="width: 250px"
+                  type="date"
+                  name=""
+                  id="date"
+                  class="input"
+                  value="2001-12-25"
+                />
+              </p>
+              <p>
+                <input
+                  style="width: 250px"
+                  type="email"
+                  name=""
+                  id="email"
+                  placeholder="Email"
+                  value="roxy@veikia.lt"
+                  class="input"
+                /><br />
+              </p>
+              <input
+                style="width: 120px"
+                type="submit"
+                value="Add"
+                class="prime"
+                id="add-one-pet"
+              />
+              <input style="width: 120px" type="reset" class="second" />
+            </form>
           </div>
         </div>
       </div>
