@@ -21,7 +21,7 @@
         <nav>
           <a href="">LOGO<img src="" alt="" /></a>
           <div>
-            <a class="" href="">Pets</a>
+            <a href="index.html">Pets</a>
             <a href="">Medications</a>
           </div>
         </nav>
@@ -32,13 +32,13 @@
         <div class="description">
           <h1>Pet description card</h1>
           </div>
-        <div class="card">
-           <div class="cards">
-                <form class="add-pet">
-                    <p><input style="width: 250px" type="text" id="name" name="name" value="Name" class="input"><br></p>
-                    <p><input style="width: 250px" type="date" name="" id="" class="input"></p>
-                    <p><input style="width: 250px" type="email" name="" id="" value="E-mail" class="input" ><br></p>
-                    <input style="width: 120px" type="submit" value="Add" class="prime">
+        <div class="cards">
+           <div class="card">
+                <form id="petForm" autocomplete="off">
+                    <p><input style="width: 250px" type="text" id="name" placeholder="Name" value="" class="input"><br></p>
+                    <p><input style="width: 250px" type="date" name="" id="date" class="input"></p>
+                    <p><input style="width: 250px" type="email" name="" id="email" placeholder="Email" value="" class="input" ><br></p>
+                    <input style="width: 120px" type="submit" value="Add" class="prime" id="add-one-pet">
                     <input style="width: 120px" type="reset" class="second">
                 </form>
           </div>
