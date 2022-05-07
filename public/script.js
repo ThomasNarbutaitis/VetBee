@@ -18,7 +18,7 @@ async function getPets() {
 
 getPets();
 
-function renderPets(array) {
+async function renderPets(array) {
   cardsEl.innerHTML = '';
   array.forEach((arrObj) => {
     const cardEl = document.createElement('div');
@@ -34,7 +34,7 @@ function renderPets(array) {
     const btnDiv = document.createElement('div');
     deleteBtn.textContent = 'DELETE';
     viewLogBtn.textContent = 'VIEW LOG';
-    deleteBtn.addEventListener('click', () => {
+    deleteBtn.addEventListener('click', async () => {
       deletePet(arrObj.id);
       getPets();
     });
