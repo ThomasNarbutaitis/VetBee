@@ -47,12 +47,12 @@ Content-Type: application/json
 
 {
     "medication_id": 3,
-    "pet_id": 8,
-    "comment": "Girdyti daugiau vandens",
-    "timestamp": "2022-05-05"
+    "pet_id": 7,
+    "comment": "tris kart i diena",
+    "timestamp": "2022-05-09"
 }
 
 ###
 
-GET http://localhost:3306/v1/prescriptions
+GET http://localhost:3306/v1/prescriptions/7
 ###

@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 // console.log('veikia');
 
 const BASE_URL = 'http://localhost:3306/v1';
@@ -39,7 +40,7 @@ async function renderPets(array) {
       getPets();
     });
     viewLogBtn.addEventListener('click', () => {
-      window.location.href = 'healthLog.html';
+      window.location.href = `healthLog.html?${arrObj.id}`;
     });
     btnDiv.append(viewLogBtn, deleteBtn);
     cardEl.append(btnDiv);

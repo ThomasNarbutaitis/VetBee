@@ -37,20 +37,19 @@ prescriptions.post('/prescriptions', async (req, res) => {
   }
 });
 
-prescriptions.get('/prescriptions', async (req, res) => {
+prescriptions.get('/prescriptions/:id', async (req, res) => {
   let conn;
   try {
     conn = await mysql.createConnection(dbConfig);
-    // eslint-disable-next-line operator-linebreak
-    // GET paims vieno augintinio visus įrašus iš 'prescriptions' db ir apjungs juos su pets ir med lentelėmis.
-    // const sql = "SELECT * FROM prescriptions";
-    // const sql =
-    //   'SELECT * FROM prescriptions LEFT JOIN medications ON medications.id = prescriptions.medication_id';
-    const sql =
-      'SELECT * FROM `prescriptions`  JOIN `pets` ON prescriptions.pet_id = pets.id  JOIN medications ON prescriptions.medication_id =medications.id GROUP BY pets.name';
-    const [logsArr] = await conn.execute(sql);
-    console.log('logsArr ===', logsArr);
-    res.status(200).json(logsArr);
+
+    const sql = `SELECT *
+      FROM prescriptions
+      LEFT JOIN medications
+      ON medications.id = prescriptions.medication_id
+      WHERE prescriptions.pet_id = ${req.params.id}`;
+    const [data] = await conn.execute(sql);
+    console.log('data ===', data);
+    return res.send(data);
   } catch (error) {
     console.log('error getting prescriptions', error);
     res.sendStatus(500);
